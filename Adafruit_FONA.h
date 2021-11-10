@@ -141,7 +141,7 @@ public:
   bool TCPconnect(char *server, uint16_t port);
   bool TCPclose(void);
   bool TCPconnected(void);
-  bool TCPsend(char *data, uint8_t len);
+  bool TCPsend(char *data, uint16_t len);
   uint16_t TCPavailable(void);
   uint16_t TCPread(uint8_t *buff, uint8_t len);
 

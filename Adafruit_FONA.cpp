@@ -1900,17 +1900,17 @@ bool Adafruit_FONA::TCPconnected(void) {
  * @param len length of the data to send
  * @return true: success, false: failure
  */
-bool Adafruit_FONA::TCPsend(char *data, uint8_t len) {
+bool Adafruit_FONA::TCPsend(char *data, uint16_t len) {
 
   DEBUG_PRINT(F("AT+CIPSEND="));
   DEBUG_PRINTLN(len);
-#ifdef ADAFRUIT_FONA_DEBUG
+/*#ifdef ADAFRUIT_FONA_DEBUG
   for (uint16_t i = 0; i < len; i++) {
     DEBUG_PRINT(F(" 0x"));
     DEBUG_PRINT(data[i], HEX);
   }
 #endif
-  DEBUG_PRINTLN();
+  DEBUG_PRINTLN();*/
 
   mySerial->print(F("AT+CIPSEND="));
   mySerial->println(len);
