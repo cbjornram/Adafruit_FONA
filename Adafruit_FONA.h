@@ -139,6 +139,7 @@ public:
 
   // TCP raw connections
   bool TCPconnect(char *server, uint16_t port);
+  bool TCPconnectSecure(char *server, uint16_t port);
   bool TCPclose(void);
   bool TCPconnected(void);
   bool TCPsend(char *data, uint16_t len);

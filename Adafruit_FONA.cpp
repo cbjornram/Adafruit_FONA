@@ -1869,6 +1869,28 @@ bool Adafruit_FONA::TCPconnect(char *server, uint16_t port) {
 }
 
 /**
+ * @brief Start a TCP connection with SSL
+ *
+ * @param server Pointer to a buffer with the server to connect to
+ * @param port Pointer to a buffer witht the port to connect to
+ * @return true: success, false: failure
+ */
+bool Adafruit_FONA::TCPconnectSecure(char *server, uint16_t port) {
+  flushInput();
+
+  DEBUG_PRINT(F("AT+CIPSSL=1"));
+  mySerial->print(F("AT+CIPSSL=1"));
+
+  if (!expectReply(ok_reply))
+    return false;
+
+  if (!TCPconnect(server, port))
+    return false;
+
+  return true;
+}
+
+/**
  * @brief Close the TCP connection
  *
  * @return true: success, false: failure
