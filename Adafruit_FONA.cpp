@@ -1975,6 +1975,9 @@ uint16_t Adafruit_FONA::TCPread(uint8_t *buff, uint8_t len) {
 #endif
 
   memcpy(buff, replybuffer, avail);
+  readline();
+  DEBUG_PRINT(F("\t<--- "));
+  DEBUG_PRINTLN(replybuffer);
 
   return avail;
 }
